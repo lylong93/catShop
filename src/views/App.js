@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import './App.css';
-import { Route } from 'react-router-dom'
+import React, { Component } from 'react'
 
-// import App from '../router.js'
+import Footer from '@/components/footer'
+import Main from '@/components/main'
 
-import Home from '../views/home'
-import Test from '../views/test'
+import { hot } from 'react-hot-loader'
+
+import style from './App.scss'
+
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-          <Route exact path="/" component={Home}/>
-          <Route path="/test" component={Test}/>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div className = {style.App}>
+				<Main/>
+				<Footer className = "Header"/>
+			</div>
+		)
+	}
 }
-
-export default App;
+export default hot(module)(App)
