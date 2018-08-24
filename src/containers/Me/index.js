@@ -20,7 +20,6 @@ const styles = {
 	},
 	dir: {
 		zIndex: 0,
-		// background: 'red',
 		boxShadow: 'none'
 	}
 };
