@@ -1,13 +1,21 @@
-import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import {login} from '@/store/actions/user'
 
-class Login extends Component {
-  render() {
-    return (
-      <div>
-        <h1>login</h1>
-      </div>
-    );
+import LoginUI from '@/components/LoginUI'
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    logined:state.user.logined
   }
 }
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    log: () => {dispatch(login())}
+  }
+}
+const Login = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginUI)
 
 export default Login

@@ -11,8 +11,8 @@ const Main =({match}) => {
 		return (
 			<div>	
 				<Switch>
-					<Route  path = "/t/1" component = { Home }/>
-					<Route  path = "/t/2" component = { Test }/>
+					<Route  path = "/home" component = { Home }/>
+					<Route  path = "/test" component = { Test }/>
 				</Switch>
 				<Footer/>
 			</div>	

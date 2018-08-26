@@ -8,7 +8,7 @@ const user = {
 		return http.post('/api/user/login', params)
 	},
 	test: (params={})=> {
-		return http.get('/api/user/test', params)
+		return http.post('/api/test/ok', params)
 	},
 	logout: () => {
 

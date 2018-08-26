@@ -1,13 +1,22 @@
-import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import {login,ttt} from '@/store/actions/user'
 
-class Test extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Test</h1>
-      </div>
-    );
+import AddTest from '@/components/AddTest'
+
+const mapStateToProps = (state, ownProps) => {
+	// console.log(state)
+  return {
+  	num:'1'
   }
 }
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onClick: () => {dispatch(ttt())}
+  }
+}
+const Test = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddTest)
 
 export default Test
