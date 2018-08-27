@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    log: () => {dispatch(login())}
+    login: (user) => {dispatch(login(user))}
   }
 }
 const Login = connect(

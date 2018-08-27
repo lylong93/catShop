@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Route,Redirect,Switch} from 'react-router-dom'
 import { hot } from 'react-hot-loader'
+import store from '@/store';
+import {login} from '@/store/actions/user'
 
 import Main from '@/containers/Main'
 import Lgoin from '@/containers/Login'
@@ -10,18 +12,16 @@ import style from './App.scss'
 class App extends Component {
 	constructor(props){
 		super(props)
-		this.ok = true
+		this.ok = ''
 	}
 	componentWillMount() {
-		console.log('ok')
+		// store.dispatch(login())
 	};
 	render() {
 		return (
 			<div>
 				<Switch>
 					<Route  exact path="/" render={()=>(
-						!this.ok?
-						<Redirect to="/home"/>:
 						<Redirect to="/login"/>
 						)}/>
 					<Route 	path = "/login" component = { Lgoin }/>  

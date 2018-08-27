@@ -7,6 +7,9 @@ const user = {
 	login: (params = {}) => {
 		return http.post('/api/user/login', params)
 	},
+	judge: (params={})=> {
+		return http.post('/api/user/login', params)
+	},
 	test: (params={})=> {
 		return http.post('/api/test/ok', params)
 	},
