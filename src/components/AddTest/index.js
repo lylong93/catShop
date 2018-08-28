@@ -1,14 +1,17 @@
-import React, { Component } from 'react'
+import React, {
+  Component
+} from 'react'
+
+import style from './style.scss'
 
 class AddTest extends Component {
-	constructor(props){
-		super(props)
-	}
+  constructor(props) {
+    super(props)
+  }
   render() {
     return (
-      <div>
-        <h1 onClick={this.props.onClick}>test</h1>
-        <div>{this.props.num}</div>
+      <div className={style.wrapper}>
+        <div>ok</div>
       </div>
     );
   }

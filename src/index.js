@@ -1,9 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import {createStore } from 'redux';
-import { BrowserRouter } from 'react-router-dom';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import {
+	Provider
+} from 'react-redux';
+import {
+	createStore
+} from 'redux';
+import {
+	BrowserRouter
+} from 'react-router-dom';
+import {
+	MuiThemeProvider,
+	createMuiTheme
+} from '@material-ui/core/styles'
 import purple from '@material-ui/core/colors/purple';
 import lime from '@material-ui/core/colors/lime';
 
@@ -14,13 +23,13 @@ import './index.scss';
 import registerServiceWorker from './config/registerServiceWorker';
 
 const theme = createMuiTheme({
-  palette: {
-  	primary: purple,
-    secondary: lime,
-  },
+	palette: {
+		primary: purple,
+		secondary: lime,
+	},
 });
 
-ReactDOM.render( 
+ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
 			<MuiThemeProvider theme={theme}>
@@ -28,6 +37,6 @@ ReactDOM.render(
 			</MuiThemeProvider>
 		</BrowserRouter>
 	</Provider>,
-	document.getElementById( 'root' )
+	document.getElementById('root')
 );
 registerServiceWorker();
