@@ -1,4 +1,4 @@
-import {LOGIN,LOGOUT,CHANGEUSER} from '../actionTypes'
+import {LOGIN,LOGOUT,GEUSER} from '../actionTypes'
 
 const user = (state={},action) => {
 	switch(action.type) {
