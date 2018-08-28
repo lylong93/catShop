@@ -8,14 +8,6 @@ import {
 	apiUserLogin
 } from '@/api'
 
-export const ttt = name => {
-	return async (dispatch, getState) => {
-		const data = await apiUserTest()
-
-		dispatch(changeLogin(data.data))
-	}
-}
-
 export const login = user => {
 	return async (dispatch, getState) => {
 		const data = await apiUserLogin(user)
@@ -38,9 +30,16 @@ export const judeUser = name => {
 		let info = localStorage.getItem('token')
 
 		// const info = await apiUserJudge(token)
-
 		if (info) {
 			dispatch(changeLogin(data.data))
 		}
+	}
+}
+
+export const ttt = name => {
+	return async (dispatch, getState) => {
+		const data = await apiUserTest()
+
+		dispatch(changeLogin(data.data))
 	}
 }
