@@ -1,4 +1,12 @@
 .wrapper {
 	flex:1;
 	overflow:scroll;
+	.head {
+		line-height: 50px;
+		border-bottom: 1px solid #ccc;
+	}
+	.chip{
+		height: 50px;
+		width: 150px;
+	}
 }
