@@ -13,6 +13,7 @@ export const login = user => {
 	return async (dispatch, getState)=> {
 		const data = await apiUserLogin(user)
 		console.log(data)
+		console.log('o')
 		if(data.data.success === 0){
 			localStorage.setItem('token',data.data.token)
 			dispatch(changeLogin(data.data.token))
