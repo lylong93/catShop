@@ -16,24 +16,38 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
+import Chat from '@/containers/Chat';
+
 import style from './style.scss'
 
 class AddTest extends Component {
   constructor(props) {
     super(props)
+    this.change = this.change.bind(this)
   }
   state = {
     value: 0,
+    show: 'true',
   };
 
   handleChange = (event, value) => {
-    this.setState({ value });
+    this.setState({
+      value
+    });
   };
-   handleDelete() {
+  change(r) {
+    this.setState({
+      show: false
+    })
+  };
+  handleDelete() {
     alert('You clicked the delete icon.'); // eslint-disable-line no-alert
   }
   render() {
-    const {value } = this.state
+    const {
+      value,
+      show
+    } = this.state
     return (
       <div className={style.wrapper}>
         <div className={style.head}>
@@ -41,8 +55,7 @@ class AddTest extends Component {
            <MailIcon/>
           </Badge>
         </div>
-
-         <AppBar position="static">
+        <AppBar position="static">
           <Tabs value={value} onChange={this.handleChange}>
             <Tab label="Item One" />
             <Tab label="Item Two" />
@@ -51,9 +64,10 @@ class AddTest extends Component {
         </AppBar>
 
         {value === 0 && <div>Item One</div>}
-         {value === 1 && <div>Item tow</div>}
-          {value === 2 && <div>Item three</div>}
-         <ExpansionPanel>
+        {value === 1 && <div>Item tow</div>}
+        {value === 2 && <div>Item three</div>}
+
+        <ExpansionPanel>
               <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography>new order</Typography>
               </ExpansionPanelSummary>
@@ -66,7 +80,9 @@ class AddTest extends Component {
                    deleteIcon={<DoneIcon/>}
                    color="primary"/>
               </ExpansionPanelDetails>
-          </ExpansionPanel>
+        </ExpansionPanel>
+
+        {this.state.show && <Chat change={this.change}/>}
       </div>
     );
   }

@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, {
+  Component
+} from 'react'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import classNames from 'classnames';
@@ -8,25 +10,27 @@ import style from './style.scss'
 class LoginUI extends Component {
   constructor(props) {
     super(props)
-    this.state={
-      name:'',
-      password:'',
-      errors:{
-        name:true,
-        password:false
+    this.state = {
+      name: '',
+      password: '',
+      errors: {
+        name: true,
+        password: false
       }
     }
     this.handleChange = this.handleChange.bind(this)
     this.submit = this.submit.bind(this)
   }
   componentWillReceiveProps(nextprops) {
-    const {logined} = nextprops
-    if(logined) {
+    const {
+      logined
+    } = nextprops
+    if (logined) {
       this.props.history.push('/home')
     }
   }
   componentWillMount() {
-  if(this.props.logined) {
+    if (this.props.logined) {
       this.props.history.push('/home')
     }
   };
@@ -35,13 +39,17 @@ class LoginUI extends Component {
       [name]: event.target.value,
     });
   };
-  submit(){
-    this.setState((prevState)=> {
-      return {errors:{...prevState.errors,name:false}}
+  submit() {
+    this.setState((prevState) => {
+      return {
+        errors: { ...prevState.errors,
+          name: false
+        }
+      }
     });
     const user = {
-      name:this.state.name,
-      password:this.state.password
+      name: this.state.name,
+      password: this.state.password
     }
     this.props.login(user)
   };

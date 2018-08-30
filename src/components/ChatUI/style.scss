@@ -1,0 +1,20 @@
+.chat{
+	position:absolute;
+	z-index:1;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	background-color:#fff;
+	// border:1px solid red;
+	display:flex;
+	flex-direction:column;
+}
+.list {
+	flex:1;
+	border:1px solid yellow;
+}
+.foot{
+	height:60px;
+	border:1px solid red;
+}
