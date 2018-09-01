@@ -20,7 +20,7 @@ import store from './store';
 import App from './containers/App';
 
 import './index.scss';
-import registerServiceWorker from './config/registerServiceWorker';
+import registerServiceWorker from './utils/registerServiceWorker';
 
 const theme = createMuiTheme({
 	palette: {

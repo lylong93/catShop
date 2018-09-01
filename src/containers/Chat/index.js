@@ -6,7 +6,7 @@ import {
   ttt
 } from '@/store/actions/user'
 
-import ChatUI from '@/components/ChatUI'
+import ChatUI from './ChatUI'
 
 const mapStateToProps = (state, ownProps) => {
   // console.log(state)

@@ -3,12 +3,14 @@ import React, {
 } from 'react'
 
 
-const Input = ()=>  {
-  render(
-    <div>input</div>
-    )
+const Input = (props)=> {
+	console.log(props)
+	return (
+			<div>
+				<input type="text" value={props.value}/>
+			</div>
 
+		)
 }
-
 
 export default Input
