@@ -17,6 +17,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
 import Chat from '@/containers/Chat';
+import ChatList from '@/containers/ChatList';
 
 import style from './style.scss'
 
@@ -82,7 +83,10 @@ class AddTest extends Component {
               </ExpansionPanelDetails>
         </ExpansionPanel>
 
-        {this.state.show && <Chat change={this.change}/>}
+      
+        <ChatList/>
+        <Chat change={this.change}/>
+
       </div>
     );
   }

@@ -37,7 +37,7 @@ class ChatUI extends Component {
             <div className={style.list}></div> 
             <input value={this.state.value} onChange={this.change}/>
           </div>
-          <div className={style.foot}>ok</div> 
+          <div className={style.foot}>ok</div>
       </div>
     );
   }
