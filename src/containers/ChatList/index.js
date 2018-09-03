@@ -5,6 +5,7 @@ import React, {
 import classNames from 'classnames';
 
 import Input from '@/components/Input';
+import ChatListItem from '@/components/ChatListItem';
 
 import style from './style.scss'
 
@@ -20,7 +21,7 @@ class ChatList extends Component {
   render() {
     return (
       <div className={style.chatlist}>
-          <div>ok</div>
+          <ChatListItem/>
       </div>
     );
   }
