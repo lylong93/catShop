@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 import {login} from '@/store/actions/user'
 
-import LoginUI from '@/components/LoginUI'
+import LoginUI from './LoginUI'
 
 const mapStateToProps = (state, ownProps) => {
   return {
