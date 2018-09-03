@@ -32,13 +32,13 @@ class ChatUI extends Component {
   render() {
     return (
       <div className={style.chat}>
-        <div onClick={this.ok}>返回</div>
-        <div className={style.list}></div>
-        <div className={style.foot}>
-          <input value={this.state.value} onChange={this.change}/>
-        </div> 
+          <div onClick={this.ok} className={style.head}>返回</div>
+          <div className={style.app}>
+            <div className={style.list}></div> 
+            <input value={this.state.value} onChange={this.change}/>
+          </div>
+          <div className={style.foot}>ok</div>   
       </div>
-
     );
   }
 }
