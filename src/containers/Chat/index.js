@@ -6,7 +6,7 @@ import {
   ttt
 } from '@/store/actions/user'
 
-import ChatUI from './ChatUI'
+import ChatList from '@/containers/ChatList'
 
 const mapStateToProps = (state, ownProps) => {
   // console.log(state)
@@ -24,6 +24,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 const Chat = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ChatUI)
+)(ChatList)
 
 export default Chat

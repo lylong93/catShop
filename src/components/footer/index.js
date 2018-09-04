@@ -48,6 +48,7 @@ class Header extends React.Component {
 	     	 >
 		        <BottomNavigationAction label={<Link to="/home">home</Link>} icon={<RestoreIcon />}/>
 		        <BottomNavigationAction label={<Link to="/test">test</Link>} icon={<RestoreIcon />}/>
+		        <BottomNavigationAction label={<Link to="/chat">chat</Link>}  icon={<RestoreIcon />}/>
 		        <BottomNavigationAction label={<Link to="/me">me</Link>}  icon={<RestoreIcon />}/>
 	     	</BottomNavigation>
 		);
