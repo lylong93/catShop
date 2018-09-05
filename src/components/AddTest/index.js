@@ -24,7 +24,6 @@ import style from './style.scss'
 class AddTest extends Component {
   constructor(props) {
     super(props)
-    this.change = this.change.bind(this)
   }
   state = {
     value: 0,
@@ -35,11 +34,6 @@ class AddTest extends Component {
     this.setState({
       value
     });
-  };
-  change(r) {
-    this.setState({
-      show: false
-    })
   };
   handleDelete() {
     alert('You clicked the delete icon.'); // eslint-disable-line no-alert
@@ -83,9 +77,6 @@ class AddTest extends Component {
               </ExpansionPanelDetails>
         </ExpansionPanel>
 
-      
-        <ChatList/>
-        <Chat change={this.change}/>
 
       </div>
     );

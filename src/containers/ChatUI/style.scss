@@ -1,0 +1,31 @@
+.chat{
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	z-index:1;
+	height:100vh;
+	display:flex;
+	flex-direction:column;
+	background-color:#fff;
+	.head {
+    	border:1px solid black;
+    	height:50px;
+	}
+	.list {
+		border:1px solid red;
+		flex:1;
+		overflow:scroll;
+	}
+	.eve{
+		height:100px;
+		display:block;
+		border:1px solid yellow;
+	}
+	.foot {
+		height:50px;
+    	border:1px solid black;
+	}
+}
+

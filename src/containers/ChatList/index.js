@@ -15,12 +15,17 @@ class ChatList extends Component {
   };
   state = {
     value: '',
-    list:[1,2,3],
+    list: [1, 2, 3],
   };
 
   gochat(item) {
-    console.log(item)
-
+    this.props.history.push({
+      pathname: "/cc",
+      query: {
+        name: "inbox",
+        myas: "哈哈"
+      }
+    })
   };
   render() {
     return (
