@@ -9,7 +9,6 @@ import Message from '@/components/Message';
 
 import style from './style.scss'
 
-let id = 1
 class ChatUI extends Component {
   constructor(props) {
     super(props)
@@ -20,41 +19,44 @@ class ChatUI extends Component {
   }
   state = {
     value: '',
-    msglist: []
+    msglist: [],
+    ifrep:false
   }
   ok() {
     this.props.change('chat')
   };
   change(event) {
     this.setState({
-      value: event.target.value
+      value: event.target.value,
+      ifrep:false
     })
-    // console.log(this.state.value)
+
   }
   back() {
     this.props.history.goBack()
   };
 
   send() {
-    // console.log(id)
-    // console.log(this.state.msglist)
     let item = {
       value: this.state.value
     }
     let data = this.state.msglist.push(item)
     this.setState({
       msglist: Object.assign(this.state.msglist, data),
-      value: ''
+      value: '',
+      ifrep:true
     })
   };
 
   componentWillReceiveProps() {}
   componentWillMount() {};
   // shouldComponentUpdate(nextProps, nextState) {
-  //   // return false
-  //   if (nextState.msglist == this.state.msglist) {
-  //     return false
-  //   }
+  //     console.log(this.state)
+  //     console.log(nextState)
+  //   // if (nextState.ifrep === this.state.ifrep) {
+  //   //   console.log('ok')
+  //   //   return false
+  //   // }
   //   return true
   // };
   render() {
@@ -62,9 +64,9 @@ class ChatUI extends Component {
       <div className={style.chat}>
           <div className={style.head} onClick={this.back}>返回</div>
           <div className={style.list}>
-            { this.state.msglist.map((index)=> {
-              console.log(index)
-               return(<Message msg={index.value} key={index.value}/>)
+            { this.state.msglist.map((item,index)=> {
+               console.log(item)
+               return(<Message msg={item.value} key={index}/>)
               })
             }
           </div> 
