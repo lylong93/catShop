@@ -3,15 +3,10 @@
 	overflow:scroll;
 	.head{
 		height:30%;
-		border:1px solid red;
-	}
-	.main {
-		height:40%;
-		border:1px solid red;
+		background: linear-gradient(130deg, #5c7dfe, #83b3ff)
 	}
 	.footer {
 		height:30%;
-		border:1px solid red;
 		display:flex;
 		.eve {
 			border:1px solid yellow;

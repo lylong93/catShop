@@ -8,18 +8,17 @@ const Percent = (props) => {
 	let color
 	if (props.num <= 20) {
 		color = 'yellow'
-	}
-	if (50 > props.num > 20) {
+	} else if ( 50> props.num &&props.num > 20) {
 		color = 'red'
 	} else {
 		color = 'purple'
 	}
 	return (
 		<div className={style.wrapper}>
-		   <div>{props.num}%</div>
-			<div className={style.percent} style={{background:color,width:`${props.num}%`}}></div>
-	    </div>
-
+		   <div className={style.num}>{props.num}%</div>
+		   <div className={style.title}>标题</div>
+			 <div className={style.percent} style={{background:color,width:`${props.num}%`}}></div>
+	     </div>
 	)
 }
 

@@ -1,7 +1,16 @@
 .wrapper {
 	height:150px;
 	width:50%;
-	border:1px solid yellow;
+	display: flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:space-around;
+	.num{
+		font-size: 40px;
+	}
+	.title {
+		font-size: 20px;
+	}
 	.percent {
 		height:10px;
 	}

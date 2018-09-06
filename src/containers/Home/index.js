@@ -4,6 +4,7 @@ import React, {
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Percent from '@/components/Percent'
+import Charts from '@/components/Charts'
 import {
   apiUserLogin,
   apiUserRegister,
@@ -54,13 +55,13 @@ class Home extends Component {
 
   render() {
     return (
-      <div className={style.wrapper}>
-    <div className={style.head}></div>
-          <div className={style.main}></div>
-          <div className={style.footer}>
-            <Percent num={80}/>
-            <Percent num={30}/>
-          </div>
+    <div className={style.wrapper}>
+        <div className={style.head}></div>
+        <Charts/>
+        <div className={style.footer}>
+          <Percent num={80}/>
+          <Percent num={30}/>
+        </div>
       </div>
     )
   }
