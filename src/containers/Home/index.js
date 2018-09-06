@@ -3,9 +3,7 @@ import React, {
 } from 'react'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-
-import socket from 'socket.io-client';
-
+import Percent from '@/components/Percent'
 import {
   apiUserLogin,
   apiUserRegister,
@@ -14,7 +12,6 @@ import {
 
 import style from './style/index.scss'
 class Home extends Component {
-
   state = {
     name: '',
     password: '',
@@ -58,41 +55,12 @@ class Home extends Component {
   render() {
     return (
       <div className={style.wrapper}>
-        <h1>{this.state.token? this.state.token:'无'}</h1>
-        <h1>{this.state.token? this.state.token:'无'}</h1>
-         <TextField
-          id="name"
-          label="Name"
-          value={this.state.name}
-          onChange={this.handleChange('name')}
-          margin="normal"
-        />
-         <TextField
-          id="name"
-          label="PassWord"
-          value={this.state.password}
-          onChange={this.handleChange('password')}
-          margin="normal"
-        />
-        <Button 
-        variant="contained" 
-        color="primary" 
-        onClick={this.handleClick}>
-     		注册
-    		</Button>
-    		 <TextField
-          id="name"
-          label="PassWord"
-          value={this.state.msg}
-          onChange={this.handleChange('msg')}
-          margin="normal"
-        />
-        <Button 
-        variant="contained" 
-        color="primary" 
-        onClick={this.sendClick}>
-     		发送
-    		</Button>
+    <div className={style.head}></div>
+          <div className={style.main}></div>
+          <div className={style.footer}>
+            <Percent num={80}/>
+            <Percent num={30}/>
+          </div>
       </div>
     )
   }

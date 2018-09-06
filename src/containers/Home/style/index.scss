@@ -1,4 +1,22 @@
 .wrapper {
 	flex:1;
 	overflow:scroll;
+	.head{
+		height:30%;
+		border:1px solid red;
+	}
+	.main {
+		height:40%;
+		border:1px solid red;
+	}
+	.footer {
+		height:30%;
+		border:1px solid red;
+		display:flex;
+		.eve {
+			border:1px solid yellow;
+			height:150px;
+			width:50%;
+		}
+	}
 }

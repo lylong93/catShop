@@ -1,7 +1,7 @@
 import React, {
   Component
 } from 'react'
-import Badge from '@material-ui/core/Badge';
+
 import MailIcon from '@material-ui/icons/Mail';
 import Chip from '@material-ui/core/Chip';
 import DoneIcon from '@material-ui/icons/Done';
@@ -45,11 +45,7 @@ class AddTest extends Component {
     } = this.state
     return (
       <div className={style.wrapper}>
-        <div className={style.head}>
-          <Badge color="primary" badgeContent={2} >
-           <MailIcon/>
-          </Badge>
-        </div>
+
         <AppBar position="static">
           <Tabs value={value} onChange={this.handleChange}>
             <Tab label="Item One" />
