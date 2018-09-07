@@ -1,0 +1,9 @@
+.me{
+	display:flex;
+	flex:1;
+	flex-direction:column;
+	background-color:#fff;
+	.wrapper {
+		height:200px;
+	}
+}

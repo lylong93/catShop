@@ -1,0 +1,19 @@
+.wrapper {
+	height:200px;
+	border-bottom:1px solid #ccc;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-around;
+	.avat {
+		width:80px;
+		height:80px;
+		background-color:#ccc;
+		border-radius:50%;
+		margin: 0 auto;
+	}
+	.name {
+		width:80px;
+		margin: 0 auto;
+		text-align:center;
+	}
+}

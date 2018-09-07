@@ -6,6 +6,7 @@ import classNames from 'classnames';
 
 import Input from '@/components/Input';
 import Message from '@/components/Message';
+import Header from '@/components/Header';
 
 import style from './style.scss'
 
@@ -20,7 +21,7 @@ class ChatUI extends Component {
   state = {
     value: '',
     msglist: [],
-    ifrep:false
+    ifrep: false
   }
   ok() {
     this.props.change('chat')
@@ -28,7 +29,7 @@ class ChatUI extends Component {
   change(event) {
     this.setState({
       value: event.target.value,
-      ifrep:false
+      msglist: Object.assign([], this.state.msglist)
     })
 
   }
@@ -44,25 +45,25 @@ class ChatUI extends Component {
     this.setState({
       msglist: Object.assign(this.state.msglist, data),
       value: '',
-      ifrep:true
+      ifrep: true
     })
   };
 
   componentWillReceiveProps() {}
   componentWillMount() {};
   // shouldComponentUpdate(nextProps, nextState) {
-  //     console.log(this.state)
-  //     console.log(nextState)
+  //   console.log(this.state)
+  //   console.log(nextState)
   //   // if (nextState.ifrep === this.state.ifrep) {
   //   //   console.log('ok')
-  //   //   return false
+  //   return false
   //   // }
-  //   return true
+  //   // return true
   // };
   render() {
     return (
       <div className={style.chat}>
-          <div className={style.head} onClick={this.back}>返回</div>
+          <Header/>
           <div className={style.list}>
             { this.state.msglist.map((item,index)=> {
                console.log(item)
