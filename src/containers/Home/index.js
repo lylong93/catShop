@@ -58,7 +58,10 @@ class Home extends Component {
     return (
       <div className={style.wrapper}>
         <Card/>
-
+        <div className={style.footer}>
+          <Percent num={80}/>
+          <Percent num={30}/>
+        </div>
       </div>
     )
   }
@@ -66,7 +69,3 @@ class Home extends Component {
 
 export default Home
 
-        // <div className={style.footer}>
-        //   <Percent num={80}/>
-        //   <Percent num={30}/>
-        // </div>

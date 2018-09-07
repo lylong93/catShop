@@ -30,7 +30,17 @@ export const judeUser = name => {
 	return async (dispatch, getState) => {
 		let info = localStorage.getItem('token')
 
-		// const info = await apiUserJudge(token)
+		if (info) {
+			dispatch(changeLogin(data.data))
+		}
+	}
+}
+
+
+export const logout = name => {
+	return async (dispatch, getState) => {
+		let info = localStorage.getItem('token')
+
 		if (info) {
 			dispatch(changeLogin(data.data))
 		}

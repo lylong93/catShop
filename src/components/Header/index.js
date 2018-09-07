@@ -23,7 +23,7 @@ const Header = (props) => {
 			<Button className={style.icon} onClick={back.bind(this,props)}>
 				<AccessAlarmIcon/>
 			</Button>
-			<div>ok</div>
+			<div>{props.title}</div>
 			<div className={style.icon}></div>
 		</div>
 	)

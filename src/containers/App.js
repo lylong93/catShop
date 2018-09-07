@@ -16,6 +16,7 @@ import {
 
 import Main from '@/containers/Main'
 import Lgoin from '@/containers/Login'
+import Register from '@/containers/Register'
 
 import style from './App.scss'
 
@@ -33,7 +34,8 @@ class App extends Component {
 					<Route  exact path="/" render={()=>(
 						<Redirect to="/login"/>
 						)}/>
-					<Route 	path = "/login" component = { Lgoin }/>  
+					<Route 	path = "/login" component = { Lgoin }/>
+					<Route 	path = "/register" component = { Register }/>   
 					<Route 	path = "/:id" component = { Main }/>		
 				</Switch>
 			</div>

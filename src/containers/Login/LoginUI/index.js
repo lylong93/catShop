@@ -20,6 +20,7 @@ class LoginUI extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.submit = this.submit.bind(this)
+    this.goRegister = this.goRegister.bind(this)
   }
   componentWillReceiveProps(nextprops) {
     const {
@@ -53,6 +54,10 @@ class LoginUI extends Component {
     }
     this.props.login(user)
   };
+
+  goRegister() {
+    this.props.history.push('/register')
+  };
   render() {
     return (
       <div  className={classNames(style.sty)}>
@@ -75,7 +80,7 @@ class LoginUI extends Component {
         <Button variant="contained" color="primary" onClick={this.submit}>
             登录
          </Button>
-         <Button variant="outlined">
+         <Button variant="outlined" onClick={this.goRegister}>
             注册
           </Button>
       </div>
