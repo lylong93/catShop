@@ -12,8 +12,8 @@ import AccessAlarmIcon from '@material-ui/icons/KeyboardBackspace';
 import Button from '@material-ui/core/Button';
 
 import style from './style.scss'
+
 const back = (props) => {
-	console.log(props)
 	props.history.goBack()
 }
 const Header = (props) => {
