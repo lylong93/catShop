@@ -5,7 +5,12 @@ import {
   logout
 } from '@/store/actions/user'
 
+import {apiUserRegister} from '@/api';
+
 import me from './me'
+// const test = () => {
+//   setTimeout(function(){ console.log('test') },5000)
+// }
 
 const mapStateToProps = (state, ownProps) => {
  const {user} = state
@@ -16,7 +21,9 @@ const mapStateToProps = (state, ownProps) => {
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onClick: () => {dispatch(logout())}
+    logout: () => {
+     dispatch(logout())
+    }
   }
 }
 const Me = connect(

@@ -11,7 +11,8 @@ import {
 } from 'react-hot-loader'
 import store from '@/store';
 import {
-	login
+	login,
+	judeUser
 } from '@/store/actions/user'
 
 import Main from '@/containers/Main'
@@ -25,7 +26,7 @@ class App extends Component {
 		super(props)
 	}
 	componentWillMount() {
-		// store.dispatch(login())
+		store.dispatch(judeUser())
 	};
 	render() {
 		return (

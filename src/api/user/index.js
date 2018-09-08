@@ -7,14 +7,11 @@ const user = {
 	login: (params = {}) => {
 		return http.post('/api/user/login', params)
 	},
-	judge: (params={})=> {
-		return http.post('/api/user/login', params)
+	getinfo: (params={})=> {
+		return http.post('/api/user/getinfo', params)
 	},
 	test: (params={})=> {
 		return http.post('/api/test/ok', params)
 	},
-	logout: () => {
-
-	}
 }
 export default user

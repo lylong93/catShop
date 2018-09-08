@@ -2,9 +2,11 @@ import React, {
   Component
 } from 'react'
 import TextField from '@material-ui/core/TextField';
-import Snackbar from '@material-ui/core/Snackbar';
 import Button from '@material-ui/core/Button';
+
+
 import Header from '@/components/Header'
+import Tip from '@/components/Tip'
 
 import classNames from 'classnames';
 import style from './style.scss'
@@ -17,13 +19,14 @@ class Register extends Component {
     this.state = {
       name: '',
       password: '',
-      open: true,
-      vertical: 'top',
-      horizontal: 'center',
+      errShow:false,
+      errMsg:''
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.submit = this.submit.bind(this)
+    this.close = this.close.bind(this)
+
   }
 
   handleChange = name => event => {
@@ -33,17 +36,23 @@ class Register extends Component {
   };
 
   submit() {
+     console.log('dd')
+    if(!this.state.name || !this.state.password) {
+      console.log('no msg')
+      return
+    }
     const user = {
       name: this.state.name,
       password: this.state.password
     }
-    console.log(user)
-    // apiUserRegister(user)
+    apiUserRegister(user)
   };
-
-   handleClose = () => {
-    this.setState({ open: false });
-  };
+  close(e) {
+    console.log(e) // TouchEvent  MouseEvent
+    this.setState({
+      errShow:false
+    })
+  }
   render() {
     return (
       <div className={classNames(style.wrapper)}>
@@ -64,13 +73,7 @@ class Register extends Component {
         <Button  className={style.mid} variant="contained" color="primary" onClick={this.submit}>
             确定
          </Button>
-          <Snackbar
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-          open={this.state.open}
-           onClose={this.handleClose}
-          style={{bottom:'100px',width:'50%',margin:'0 auto'}}
-          message={<span id="message-id">I love snacks</span>}
-        />
+        <Tip msg={this.state.errMsg} show={this.state.errShow} onClose={this.close}/>
       </div>
     );
   }

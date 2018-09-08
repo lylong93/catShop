@@ -1,49 +1,52 @@
 import {
 	LOGIN,
-	CHANGEUSER
+	CHANGEUSER,
+	LOGOUT
 } from '../actionTypes'
 import {
 	apiUserTest,
 	apiUserJudge,
-	apiUserLogin
+	apiUserLogin,
+	apiUserGetInfo
 } from '@/api'
 
 export const login = user => {
 	return async (dispatch, getState) => {
 		const data = await apiUserLogin(user)
-		console.log(data)
-
-		if (data.data.success === 0) {
+		if (data.data.state === 0) {
 			localStorage.setItem('token', data.data.token)
-			dispatch(changeLogin(data.data.token))
+			dispatch(changeLogin(data.data))
+		} else {
+			return data.data.msg
 		}
 	}
 }
 
-export const changeLogin = token => {
+export const logout = () => {
+		localStorage.removeItem('token');
+		return {
+			type: LOGOUT
+		}
+}
+
+export const changeLogin = info => {
+	const {token,name} = info
 	return {
 		type: CHANGEUSER,
-		token
+		token,
+		name
 	}
 }
 export const judeUser = name => {
+	console.log('ok')
+
 	return async (dispatch, getState) => {
-		let info = localStorage.getItem('token')
-
-		if (info) {
-			dispatch(changeLogin(data.data))
-		}
-	}
-}
-
-
-export const logout = name => {
-	return async (dispatch, getState) => {
-		let info = localStorage.getItem('token')
-
-		if (info) {
-			dispatch(changeLogin(data.data))
-		}
+		let token = localStorage.getItem('token')
+		const data = await apiUserGetInfo({token})
+		console.log(data)
+		// if (info) {
+		// 	dispatch(changeLogin(data.data))
+		// }
 	}
 }
 

@@ -16,13 +16,17 @@ import style from './style.scss'
 class Me extends Component {
   constructor(props) {
     super(props)
+    this.logOut = this.logOut.bind(this)
   }
   state = {
     value: '',
     msglist: [],
     ifrep: false
   }
-
+  logOut() {
+    this.props.logout()
+    this.props.history.replace('/login')
+  }
   componentWillReceiveProps() {}
   componentWillMount() {};
 
@@ -44,7 +48,7 @@ class Me extends Component {
                 <ListItemText primary="about" />
              </ListItem>
              <ListItem button>
-                <ListItemText primary="logOut" />
+                <ListItemText primary="logout" onClick={this.logOut}/>
              </ListItem>
           </List>
       </div>
