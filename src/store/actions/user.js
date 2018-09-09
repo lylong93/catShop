@@ -38,15 +38,14 @@ export const changeLogin = info => {
 	}
 }
 export const judeUser = name => {
-	console.log('ok')
-
 	return async (dispatch, getState) => {
 		let token = localStorage.getItem('token')
-		const data = await apiUserGetInfo({token})
-		console.log(data)
-		// if (info) {
-		// 	dispatch(changeLogin(data.data))
-		// }
+		if(token) {
+			const data = await apiUserGetInfo({token})
+			if(data.data.state === 0) {
+				dispatch(changeLogin({...data.data,token}))
+			}
+		}
 	}
 }
 

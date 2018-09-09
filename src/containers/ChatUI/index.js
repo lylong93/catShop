@@ -2,14 +2,31 @@ import React, {
   Component
 } from 'react'
 
-import classNames from 'classnames';
+import io from 'socket.io-client';
 
 import Input from '@/components/Input';
 import Message from '@/components/Message';
 import Header from '@/components/Header';
 
 import style from './style.scss'
+import classNames from 'classnames';
 
+const socket = io('http://localhost:8000/',{ autoConnect: false });
+
+socket.open();
+
+socket.on('connect', () => {
+    console.log('connect')
+});
+socket.on('disconnect', () => {
+    console.log('disconnect')
+});
+socket.on('error', () => {
+    console.log('error')
+});
+socket.on('server',(msg)=> {
+  console.log(msg)
+});
 class ChatUI extends Component {
   constructor(props) {
     super(props)
@@ -47,6 +64,13 @@ class ChatUI extends Component {
       value: '',
       ifrep: true
     })
+    let mm = {
+      user:'me',
+      msg:'nihao '
+    }
+    socket.emit('news', mm, (data)=> {
+      console.log(data)
+    });
   };
 
   componentWillReceiveProps() {}
@@ -66,7 +90,7 @@ class ChatUI extends Component {
           <Header/>
           <div className={style.list}>
             { this.state.msglist.map((item,index)=> {
-               console.log(item)
+               // console.log(item)
                return(<Message msg={item.value} key={index}/>)
               })
             }
