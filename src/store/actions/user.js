@@ -10,6 +10,8 @@ import {
 	apiUserGetInfo
 } from '@/api'
 
+import {loginsock} from '@/socket'
+
 export const login = user => {
 	return async (dispatch, getState) => {
 		const data = await apiUserLogin(user)
@@ -31,6 +33,7 @@ export const logout = () => {
 
 export const changeLogin = info => {
 	const {token,name} = info
+	loginsock(name)
 	return {
 		type: CHANGEUSER,
 		token,
