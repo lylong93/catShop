@@ -11,22 +11,22 @@ import Header from '@/components/Header';
 import style from './style.scss'
 import classNames from 'classnames';
 
-const socket = io('http://localhost:8000/',{ autoConnect: false });
+const socket = io('http://localhost:8000/', {
+  autoConnect: false
+});
 
 socket.open();
 
 socket.on('connect', () => {
-    console.log('connect')
+  console.log('connect')
 });
 socket.on('disconnect', () => {
-    console.log('disconnect')
+  console.log('disconnect')
 });
 socket.on('error', () => {
-    console.log('error')
+  console.log('error')
 });
-socket.on('server',(msg)=> {
-  console.log(msg)
-});
+
 class ChatUI extends Component {
   constructor(props) {
     super(props)
@@ -65,16 +65,23 @@ class ChatUI extends Component {
       ifrep: true
     })
     let mm = {
-      user:'me',
-      msg:'nihao '
+      user: 'me',
+      msg: 'nihao '
     }
-    socket.emit('news', mm, (data)=> {
-      console.log(data)
+    socket.emit('news', mm);
+    socket.on('ttt', (msg) => {
+      console.log('ooo')
+      console.log(msg)
     });
   };
 
   componentWillReceiveProps() {}
-  componentWillMount() {};
+  componentWillMount() {
+    socket.on('getresponse', (msg) => {
+      console.log('msg')
+      console.log(msg)
+    });
+  };
   // shouldComponentUpdate(nextProps, nextState) {
   //   console.log(this.state)
   //   console.log(nextState)
