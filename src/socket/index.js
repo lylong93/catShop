@@ -8,10 +8,10 @@ socket.open();
 console.log('ooo')
 
 socket.on('connect', () => {
-    console.log('connect')
+	console.log('connect')
 });
 socket.on('ggg', (data) => {
-    console.log(data)
+	console.log(data)
 });
 // socket.on('disconnect', () => {
 //     console.log('disconnect')
@@ -23,6 +23,6 @@ socket.on('ggg', (data) => {
 //   console.log(msg)	
 // });
 
-export const loginsock = (name)=> socket.emit('login',name);
-export const server = ()=> socket.emit('server','im server');
-export const sendMsg = (data)=> socket.emit('sendMsg',data);
+export const ioLogin = (name) => socket.emit('login', name);
+export const ioServer = () => socket.emit('server', 'im server');
+export const ioSendMsg = (msg) => socket.emit('sendMsg', msg);

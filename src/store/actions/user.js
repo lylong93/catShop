@@ -10,7 +10,7 @@ import {
 	apiUserGetInfo
 } from '@/api'
 
-import {loginsock} from '@/socket'
+import {ioLogin} from '@/socket'
 
 export const login = user => {
 	return async (dispatch, getState) => {
@@ -33,7 +33,7 @@ export const logout = () => {
 
 export const changeLogin = info => {
 	const {token,name} = info
-	loginsock(name)
+	ioLogin(name)
 	return {
 		type: CHANGEUSER,
 		token,

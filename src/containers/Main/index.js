@@ -25,9 +25,8 @@ const Main = ({
 				<Route  path = "/test" component = { Test }/>
 				<Route  path = "/chat"   component = { Chat }/>
 				<Route  path = "/me"   component = { Me }/>
-				<Route  path = "/cc"   component = { ChatUI }/>
+				<Route  path = "/cc/:id"   component = { ChatUI }/>
 			</Switch>
-
 			<Footer/>
 		</div>
 	)

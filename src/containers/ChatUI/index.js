@@ -7,29 +7,10 @@ import Message from '@/components/Message';
 import Header from '@/components/Header';
 
 import {
-  sendMsg
+  ioSendMsg
 } from '@/socket'
 
 import style from './style.scss'
-import classNames from 'classnames';
-
-
-const socket = io('http://localhost:8000/', {
-  autoConnect: false
-});
-
-socket.open();
-
-socket.on('connect', () => {
-  console.log('connect')
-});
-socket.on('disconnect', () => {
-  console.log('disconnect')
-});
-socket.on('error', () => {
-  console.log('error')
-});
-
 
 class ChatUI extends Component {
   constructor(props) {
@@ -60,7 +41,8 @@ class ChatUI extends Component {
 
   send() {
     let item = {
-      value: this.state.value
+      value: this.state.value,
+      send: true
     }
     let data = this.state.msglist.push(item)
     this.setState({
@@ -68,39 +50,32 @@ class ChatUI extends Component {
       value: '',
       ifrep: true
     })
-    let mm = {
+    let msg = {
       to: '123',
       user: 'me',
-      msg: 'nihao '
+      msg: this.state.value
     }
-    sendMsg(mm)
-
+    ioSendMsg(msg)
+    const list = this.refs.list
+    console.log(list.scrollHeight)
+    list.scrollTop = list.scrollHeight
   };
 
-  componentWillReceiveProps() {}
+  componentWillReceiveProps() {
+    // console.log(this)
+  }
   componentWillMount() {
-    socket.on('getresponse', (msg) => {
-      console.log('msg')
-      console.log(msg)
-    });
+    console.log(this.props.match.params.id)
   };
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   console.log(this.state)
-  //   console.log(nextState)
-  //   // if (nextState.ifrep === this.state.ifrep) {
-  //   //   console.log('ok')
-  //   return false
-  //   // }
-  //   // return true
-  // };
+
   render() {
     return (
       <div className={style.chat}>
-          <Header/>
-          <div className={style.list}>
+          <Header title='lyl'/>
+          <div className={style.list} ref="list">
             { this.state.msglist.map((item,index)=> {
-               // console.log(item)
-               return(<Message msg={item.value} key={index}/>)
+              console.log(item)
+               return(<Message msg={item.value} key={index} send={item.send}/>)
               })
             }
           </div> 

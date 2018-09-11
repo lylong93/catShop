@@ -1,10 +1,11 @@
 .item {
-	border:1px solid black;
 	height: 60px;
 	background-color:#fff;
 	display: flex;
 	justify-content:space-between;
 	align-items:center;
+	margin:5px;
+	padding:0 10px;
 }
 .avat{
 	display:inline-block;
@@ -12,4 +13,22 @@
 	width: 50px;
 	border:1px solid black;
 	border-radius: 50%;
-	}
+}
+.time {
+	height: 60px;
+	line-height:30px;
+	font-size:10px;
+}
+.title {
+	height:20px;
+	width:150px;
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+}
+.tip {
+	font-size:10px;
+	line-height:18px;
+	height:20px;
+	color:red;
+}
