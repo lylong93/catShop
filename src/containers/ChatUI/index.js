@@ -2,14 +2,17 @@ import React, {
   Component
 } from 'react'
 
-import io from 'socket.io-client';
-
 import Input from '@/components/Input';
 import Message from '@/components/Message';
 import Header from '@/components/Header';
 
+import {
+  sendMsg
+} from '@/socket'
+
 import style from './style.scss'
 import classNames from 'classnames';
+
 
 const socket = io('http://localhost:8000/', {
   autoConnect: false
@@ -26,6 +29,7 @@ socket.on('disconnect', () => {
 socket.on('error', () => {
   console.log('error')
 });
+
 
 class ChatUI extends Component {
   constructor(props) {
@@ -65,14 +69,12 @@ class ChatUI extends Component {
       ifrep: true
     })
     let mm = {
+      to: '123',
       user: 'me',
       msg: 'nihao '
     }
-    socket.emit('news', mm);
-    socket.on('ttt', (msg) => {
-      console.log('ooo')
-      console.log(msg)
-    });
+    sendMsg(mm)
+
   };
 
   componentWillReceiveProps() {}
