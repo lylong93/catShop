@@ -1,0 +1,31 @@
+.wrapper {
+	display:flex;
+	background-color:#fff;
+}
+.icon {
+	height:50px;
+	width:60px;
+}
+.inputWrapper {
+	flex:1;
+	line-height:50px;
+	display: flex;
+	align-items:center;
+	justify-content:center;
+}
+.serchWrapper {
+	height:70%;
+	width:70%;
+	padding:0 10px;
+	display: flex;
+	align-items:center;
+	background-color:#ccc;
+	box-sizing:border-box;
+}
+.input{
+	height:80%;
+	width:80%;
+	border-width:0;
+	outline:none;
+	background-color:#ccc;
+}

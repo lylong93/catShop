@@ -13,7 +13,9 @@ import Home from '../Home'
 import Test from '../Test'
 import Chat from '../Chat'
 import Me from '../Me'
+import Set from '../Set'
 import ChatUI from '../ChatUI'
+
 
 const Main = ({
 	match
@@ -26,6 +28,7 @@ const Main = ({
 				<Route  path = "/chat"   component = { Chat }/>
 				<Route  path = "/me"   component = { Me }/>
 				<Route  path = "/cc/:id"   component = { ChatUI }/>
+				<Route  path = "/set"   component = { Set }/>
 			</Switch>
 			<Footer/>
 		</div>
