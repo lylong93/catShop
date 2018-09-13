@@ -3,6 +3,7 @@ import React, {
 } from 'react'
 
 import Header from '@/components/Header'
+import Upload from '@/components/Upload'
 
 import style from './style.scss'
 
@@ -15,6 +16,7 @@ class Set extends Component {
     return (
       <div className={style.wrapper}>
         <Header title='设置'/>
+        <Upload/>
       </div>
     );
   }
