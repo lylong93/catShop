@@ -7,7 +7,8 @@ import Message from '@/components/Message';
 import Header from '@/components/Header';
 
 import {
-  ioSendMsg
+  ioSendMsg,
+  ioRecMsg
 } from '@/socket'
 
 import style from './style.scss'
@@ -57,8 +58,7 @@ class ChatUI extends Component {
     }
     ioSendMsg(msg)
     const list = this.refs.list
-    console.log(list.scrollHeight)
-    list.scrollTop = list.scrollHeight
+    console.log(list)
   };
 
   componentWillReceiveProps() {
@@ -66,6 +66,18 @@ class ChatUI extends Component {
   }
   componentWillMount() {
     console.log(this.props.match.params.id)
+    ioRecMsg((msg)=> {
+      
+      let item = {
+        value: msg,
+        send: false
+      }
+      let data = this.state.msglist.push(item)
+      this.setState({
+        msglist: Object.assign(this.state.msglist, data),
+        ifrep: true
+      })
+    })
   };
 
   render() {

@@ -4,9 +4,6 @@ const socket = io('http://localhost:8000/');
 
 socket.open();
 
-
-console.log('ooo')
-
 socket.on('connect', () => {
 	console.log('connect')
 });
@@ -26,3 +23,4 @@ socket.on('ggg', (data) => {
 export const ioLogin = (name) => socket.emit('login', name);
 export const ioServer = () => socket.emit('server', 'im server');
 export const ioSendMsg = (msg) => socket.emit('sendMsg', msg);
+export const ioRecMsg = (fn)=> socket.on('RecMsg',fn)
