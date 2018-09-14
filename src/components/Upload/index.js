@@ -42,13 +42,13 @@ class Upload extends React.Component {
 			// console.log(canvas)
 			// console.log(img64)
 
-			setTimeout(() => {
-				img64 = canvas.toDataURL();
-				console.log(img64)
-				// that.setState({
-				// 	src: img64
-				// })
-			}, 9000)
+			// setTimeout(() => {
+			// 	img64 = canvas.toDataURL();
+			// 	console.log(img64)
+			// 	// that.setState({
+			// 	// 	src: img64
+			// 	// })
+			// }, 9000)
 
 		};
 	}
@@ -56,7 +56,11 @@ class Upload extends React.Component {
 		return (
 			<div className={style.wrapper}>
 				<input className={style.file} type="file"  ref="file" onChange={this.changepic}/>
-				<img className={style.img} ref="img"  src={this.state.src}/>
+				{this.state.src
+					?<img className={style.img} ref="img"  src={this.state.src}/>
+					:<div></div>
+				}
+				
 			</div>
 		);
 	}

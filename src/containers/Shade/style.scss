@@ -1,0 +1,26 @@
+.wrapper {
+	background:rgba(0,0,0,.3);
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	.card {
+		position:absolute;
+		top:20%;
+		left:10%;
+		height:300px;
+		width:300px;
+		display:flex;
+		flex-direction:column;
+		justify-content:space-between;
+		padding:30px;
+		box-sizing:border-box;
+		.foot {
+			display:flex;
+			height:60px;
+			background-color:#eee;
+		}
+	}
+
+}

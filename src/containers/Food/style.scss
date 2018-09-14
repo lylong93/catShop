@@ -1,0 +1,24 @@
+.wrapper{
+	height:300px;
+	width:90%;
+	margin:0 auto;
+	border:1px solid black;
+
+	.list {
+		height:250px;
+		overflow:scroll;
+	}
+	.foot {
+		height:50px;
+		display:flex;
+		justify-content:flex-end;
+		height:50px;
+		width:100%;
+		border:1px solid yellow;
+	}
+	.btn {
+		width:35px;
+		height:35px;
+	}
+
+}
