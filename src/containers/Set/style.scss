@@ -2,16 +2,15 @@
 	display:flex;
 	flex-direction:column;
 	flex:1;
-	.input {
-		width:100px;
-			}
-	.select{
-		color:red;
-	}
-	.option {
-		width:100px;
+	.title {
 		border:1px solid red;
-		color:red;
-		height:10px;
 	}
+	.head {
+		flex-direction:column;
+		display:flex;
+		height:300px;
+		align-items:center;
+		justify-content:space-around;
+	}
+
 }

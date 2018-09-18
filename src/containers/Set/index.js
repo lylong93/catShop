@@ -9,6 +9,7 @@ import Header from '@/components/Header'
 import Upload from '@/components/Upload'
 
 import style from './style.scss'
+
 class Set extends Component {
   constructor(props) {
     super(props)
@@ -28,12 +29,13 @@ class Set extends Component {
     return (
       <div className={style.wrapper}>
         <Header title='设置'/>
-        <Upload/>
-
-        <FormItme title='名称'/>
-        <FormItme title='地址'/>
-        <FormItme title='电话'/>
-
+        <div className={style.head}>
+          <Upload/>
+          <FormItme className={style.dd} title='名称'/>
+          <FormItme title='地址'/>
+          <FormItme title='电话'/>
+        </div>
+        <h3 className={style.title}>list</h3>
         <Food/>
       </div>
     );
