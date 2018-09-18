@@ -18,6 +18,7 @@ class Me extends Component {
     super(props)
     this.logOut = this.logOut.bind(this)
     this.goSet = this.goSet.bind(this)
+    this.goAbout = this.goAbout.bind(this)
   }
   state = {
     value: '',
@@ -31,6 +32,9 @@ class Me extends Component {
   goSet() {
     this.props.history.push('/set')
   }
+  goAbout() {
+    this.props.history.push('/about')
+  }
   componentWillReceiveProps() {}
   componentWillMount() {};
 
@@ -43,13 +47,10 @@ class Me extends Component {
                 <ListItemText primary="Inbox" />
              </ListItem>
               <ListItem button>
-                <ListItemText primary="Inbox" />
-             </ListItem>
-              <ListItem button>
                 <ListItemText primary="set" onClick={this.goSet}/>
              </ListItem>         
              <ListItem button>
-                <ListItemText primary="about" />
+                <ListItemText primary="about" onClick={this.goAbout}/>
              </ListItem>
              <ListItem button>
                 <ListItemText primary="logout" onClick={this.logOut}/>

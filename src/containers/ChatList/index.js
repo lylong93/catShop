@@ -8,7 +8,9 @@ import Input from '@/components/Input';
 import ChatListItem from '@/components/ChatListItem';
 import Search from '@/components/Search';
 
-import {apiChatUserList} from '@/api'
+import {
+  apiChatUserList
+} from '@/api'
 
 import style from './style.scss'
 
@@ -32,8 +34,8 @@ class ChatList extends Component {
       pathname: `/cc/${id}`,
     })
   };
-  componentWillMount = async ()=> {
-    const data = await  apiChatUserList()
+  componentWillMount = async () => {
+    const data = await apiChatUserList()
     console.log(data)
   };
   render() {

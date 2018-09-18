@@ -39,11 +39,10 @@ class Food extends Component {
 				<div className={style.list}>
 					{
 						this.state.foods.map(()=> {
-							return (<FoodItme className={style.time} />)
+							return (<FoodItme />)
 						})
 					}
 				</div>
-
 				<div className={style.foot}>
 					<Button variant="fab" color="primary" className={style.btn} onClick={this.add}>
 					    <AddIcon />
