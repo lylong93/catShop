@@ -17,7 +17,7 @@ import style from './style.scss'
 const Search = (props) => {
 	return (
 		<div className={style.wrapper}>
-			<Button className={style.icon}>
+			<Button className={style.icon} onClick={props.onClick}>
 				<Person/>
 			</Button>
 			<div className={style.inputWrapper}>
