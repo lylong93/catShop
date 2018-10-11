@@ -8,8 +8,7 @@ export const apiUserGetInfo = user.getinfo
 
 export const apiChatSend = chat.send
 export const apiChatUserList = chat.userList
-
-
+export const apiGetMstList = chat.getMstList
 
 
 export const apiUserlogout = user.logout

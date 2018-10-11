@@ -19,6 +19,7 @@ class ChatList extends Component {
   constructor(props) {
     super(props)
     this.show = this.show.bind(this)
+    this.closeSide = this.closeSide.bind(this)
   };
   state = {
     value: '',
@@ -27,6 +28,8 @@ class ChatList extends Component {
       tip: false,
       id: 1
     }],
+    user:[],
+    ifShowSide:false
   };
 
   gochat(item) {
@@ -37,12 +40,34 @@ class ChatList extends Component {
     })
   };
   show() {
-    alert('show')
+    this.setState({
+      ifShowSide:true
+    })
+
   };
+  closeSide(e) {
+     e.preventDefault();
+    this.setState({
+      ifShowSide:false
+    })
+  };
+  select(e) {
+    e.stopPropagation()
+    alert('this')
+    // this.props.history.push({
+    //   pathname: `/cc/${id}`,
+    // })
+  }
   componentWillMount = async () => {
     const data = await apiChatUserList()
-    console.log(data)
-  };
+
+    if(data.data.state=== 0) {
+      console.log(data)
+      this.setState({
+        user:data.data.list
+      })
+    }
+   };
   render() {
     return (
       <div className={style.chatlist}>
@@ -53,10 +78,12 @@ class ChatList extends Component {
             })     
           }
         </div>
+        {this.state.ifShowSide&&
+          <Side data={this.state.user} select={this.select} close={this.closeSide} />          
+        }
       </div>
     );
   }
 }
 
 export default ChatList
-        // <Side/>

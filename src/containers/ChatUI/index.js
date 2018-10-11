@@ -2,6 +2,9 @@ import React, {
   Component
 } from 'react'
 
+import {connect} from 'react-redux'
+
+
 import Input from '@/components/Input';
 import Message from '@/components/Message';
 import Header from '@/components/Header';
@@ -10,6 +13,8 @@ import {
   ioSendMsg,
   ioRecMsg
 } from '@/socket'
+
+import {apiGetMstList} from '@/api'
 
 import style from './style.scss'
 
@@ -24,7 +29,7 @@ class ChatUI extends Component {
   state = {
     value: '',
     msglist: [],
-    ifrep: false
+    chatName:'',
   }
   ok() {
     this.props.change('chat')
@@ -39,7 +44,6 @@ class ChatUI extends Component {
   back() {
     this.props.history.goBack()
   };
-
   send() {
     let item = {
       value: this.state.value,
@@ -49,14 +53,15 @@ class ChatUI extends Component {
     this.setState({
       msglist: Object.assign(this.state.msglist, data),
       value: '',
-      ifrep: true
     })
     let msg = {
-      to: '123',
-      user: 'me',
+      from:this.props.name,
+      to: this.state.chatName,
       msg: this.state.value
     }
     ioSendMsg(msg)
+
+    // 滑动
     const list = this.refs.list
     console.log(list)
   };
@@ -64,30 +69,43 @@ class ChatUI extends Component {
   componentWillReceiveProps() {
     // console.log(this)
   }
-  componentWillMount() {
-    console.log(this.props.match.params.id)
-    ioRecMsg((msg)=> {
-      
-      let item = {
-        value: msg,
-        send: false
-      }
-      let data = this.state.msglist.push(item)
+  componentWillMount = async () =>{
+    // console.log(this.props.match.params.id)
+    const id = this.props.match.params.id
+   
+    const data = await apiGetMstList({id});
+    if(data.data.state === 0) {
+      console.log(data)
+      const {username} = data.data.data.query
+      const list = data.data.data.list
       this.setState({
-        msglist: Object.assign(this.state.msglist, data),
-        ifrep: true
+        chatName:username,
+        msglist:list
       })
-    })
+    }
+
+
+   
+    // ioRecMsg((msg)=> {
+    //   let item = {
+    //     value: msg,
+    //     send: false
+    //   }
+    //   let data = this.state.msglist.push(item)
+    //   this.setState({
+    //     msglist: Object.assign(this.state.msglist, data),
+    //     ifrep: true
+    //   })
+    // })
   };
 
   render() {
     return (
       <div className={style.chat}>
-          <Header title='lyl'/>
+          <Header title={this.state.chatName}/>
           <div className={style.list} ref="list">
             { this.state.msglist.map((item,index)=> {
-              console.log(item)
-               return(<Message msg={item.value} key={index} send={item.send}/>)
+               return(<Message msg={item.msg} key={index} send={item.send}/>)
               })
             }
           </div> 
@@ -97,4 +115,13 @@ class ChatUI extends Component {
   }
 }
 
-export default ChatUI
+
+const mapStateToProps = (state, ownProps) => {
+  const {user} = state
+  return {
+    name: user.name,
+  }
+}
+export default connect(
+  mapStateToProps,
+)(ChatUI)

@@ -2,6 +2,10 @@ import React, {
   Component
 } from 'react'
 
+import {
+  withRouter
+} from 'react-router-dom';
+
 import classNames from 'classnames';
 
 import SideItem from '@/components/SideItem';
@@ -18,26 +22,20 @@ class ChatList extends Component {
   constructor(props) {
     super(props)
   };
-  state = {
-    list: [{}],
-  };
-  show() {
-    alert('one')
-  }
-  ok(e) {
-    e.stopPropagation()
-    alert('ok')
-  }
-  componentWillMount = async () => {
-
+  select (item) {
+    console.log( this.props)
+    this.props.history.push({
+      pathname: `/cc/${item._id}`,
+      query:'ooo'
+    })
   };
   render() {
     return (
-      <div className={style.wrapper} onClick={this.show}>
-        <div className={style.side} onClick={this.ok}>
+      <div className={style.wrapper} onClick={this.props.close}>
+        <div className={style.side}>
           <div>
-            { this.state.list.map((item,index)=> {
-                 return (<SideItem key={index} />)
+            { this.props.data.map((item,index)=> {
+                 return (<SideItem key={index} data={item} onClick={this.select.bind(this,item)}/>)
               })     
             }
           </div>
@@ -47,4 +45,4 @@ class ChatList extends Component {
   }
 }
 
-export default ChatList
+export default withRouter(ChatList)

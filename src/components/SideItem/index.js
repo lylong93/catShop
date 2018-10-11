@@ -11,7 +11,7 @@ const SideItem = (props) => {
 	return (
 		<div className={style.wrapper} onClick={props.onClick}>
 			<span className={style.avat}></span>
-			<div className={style.name}>woshidhui</div>
+			<div className={style.name}>{props.data.username}</div>
 		</div>
 	)
 }
