@@ -31,7 +31,7 @@ class Set extends Component {
         <Header title='设置'/>
         <div className={style.head}>
           <Upload/>
-          <FormItme className={style.dd} title='名称'/>
+          <FormItme title='名称'/>
           <FormItme title='地址'/>
           <FormItme title='电话'/>
         </div>

@@ -9,7 +9,6 @@ import {
 import AddTest from '@/components/AddTest'
 
 const mapStateToProps = (state, ownProps) => {
-	// console.log(state)
 	return {
 		num: '1'
 	}

@@ -18,7 +18,7 @@ class Food extends Component {
 	};
 	state = {
 		show: false,
-		foods: [1, 2, 7, 3, 5]
+		foods: [1,5,3]
 	}
 	add() {
 		this.setState({
@@ -38,8 +38,8 @@ class Food extends Component {
 			<div className={style.wrapper} onClick={this.props.onClick}>
 				<div className={style.list}>
 					{
-						this.state.foods.map(()=> {
-							return (<FoodItme />)
+						this.state.foods.map((item,index)=> {
+							return (<FoodItme  key={index}/>)
 						})
 					}
 				</div>
