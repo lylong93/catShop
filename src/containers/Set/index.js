@@ -13,11 +13,11 @@ import style from './style.scss'
 class Set extends Component {
   constructor(props) {
     super(props)
+    this.say = this.say.bind(this)
   }
   state = {
     age: 0,
     value: '',
-
   }
   handleChange = name => event => {
     console.log(event.target.value)
@@ -25,12 +25,15 @@ class Set extends Component {
       [name]: event.target.value
     });
   }
+  say() {
+    console.log(this)
+  }
   render() {
     return (
       <div className={style.wrapper}>
         <Header title='设置'/>
         <div className={style.head}>
-          <Upload/>
+          <Upload token='token' callback={this.say}/>
           <FormItme title='名称'/>
           <FormItme title='地址'/>
           <FormItme title='电话'/>

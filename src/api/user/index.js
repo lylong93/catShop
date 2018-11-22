@@ -7,8 +7,11 @@ const user = {
 	login: (params = {}) => {
 		return http.post('/api/shop/login', params)
 	},
-	getinfo: (params={})=> {
+	getInfo: (params={})=> {
 		return http.post('/api/shop/getinfo', params)
+	},
+	upToken:(params={})=> {
+		return http.post('/api/shop/updata', params)
 	}
 }
 export default user
