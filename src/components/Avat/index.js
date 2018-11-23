@@ -5,7 +5,6 @@ import React, {
 import classNames from 'classnames';
 import style from './style.scss'
 
-
 const Avat = (props) => {
 	const {src,name} = props
 	return (
