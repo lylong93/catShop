@@ -32,8 +32,9 @@ export const logout = () => {
 }
 
 export const changeLogin = info => {
-	const {token,name} = info
-	ioLogin(name)
+	console.log(info)
+	const {token,shopname} = info
+	ioLogin(shopname)
 	return {
 		type: CHANGEUSER,
 		token,

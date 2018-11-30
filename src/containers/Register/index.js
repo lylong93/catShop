@@ -42,7 +42,7 @@ class Register extends Component {
       return
     }
     const user = {
-      name: this.state.name,
+      shopname: this.state.name,
       password: this.state.password
     }
     apiUserRegister(user)

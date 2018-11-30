@@ -9,15 +9,19 @@ import Header from '@/components/Header'
 import Upload from '@/components/Upload'
 
 import style from './style.scss'
+import { apiGetUpToken , apiUpAvatar} from '@/api'
 
 class Set extends Component {
   constructor(props) {
     super(props)
-    this.say = this.say.bind(this)
+    this.save = this.save.bind(this)
+    this.token = this.token.bind(this)
   }
   state = {
     age: 0,
     value: '',
+    uploadToken:'',
+    imgname:''
   }
   handleChange = name => event => {
     console.log(event.target.value)
@@ -25,15 +29,34 @@ class Set extends Component {
       [name]: event.target.value
     });
   }
-  say() {
-    console.log(this)
+  async save(data) {
+
+    let url = `http://pijsd28dq.bkt.clouddn.com/${data.key}`
+    let updata = {
+      shopname:'lyl',
+      img:url
+    }
+    let a =await apiUpAvatar(updata)
+    console.log(a)
+  }
+
+  async token() {
+    let data = await apiGetUpToken()
+    let {uploadToken} = data.data
+    this.setState({
+      uploadToken,
+      imgname:'shop/shopname'
+    });
+  }
+  componentWillMount() {
+    this.token()
   }
   render() {
     return (
       <div className={style.wrapper}>
         <Header title='设置'/>
         <div className={style.head}>
-          <Upload token='token' callback={this.say}/>
+          <Upload token={this.state.uploadToken} name={this.state.imgname}   callback={this.save}/>
           <FormItme title='名称'/>
           <FormItme title='地址'/>
           <FormItme title='电话'/>

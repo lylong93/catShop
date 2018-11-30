@@ -5,6 +5,8 @@ export const apiUserRegister = user.register
 export const apiUserLogin = user.login
 export const apiUserGetInfo = user.getInfo
 export const apiUserUpToken = user.upToken
+export const apiGetUpToken = user.getUpToken
+export const apiUpAvatar = user.upAvatar
 
 export const apiChatSend = chat.send
 export const apiChatUserList = chat.userList

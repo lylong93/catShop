@@ -55,7 +55,7 @@ class LoginUI extends Component {
       }
     });
     const user = {
-      name: this.state.name,
+      shopname: this.state.name,
       password: this.state.password
     }
     const data = await this.props.login(user)

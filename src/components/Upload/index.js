@@ -14,7 +14,7 @@ class Upload extends React.Component {
 	state = {
 		src: ""
 	}
-	changepic(e) {
+	changepic() {
 		let read = new FileReader()
 		let f = this.refs.file.files[0]
 		read.readAsDataURL(f)
@@ -35,21 +35,22 @@ class Upload extends React.Component {
 
 			ctx.drawImage(img, 0, 0, 100, 100);
 
-			let token = 'XHOq07hni2FvGYVGWBf2NHor2xFkpeygK1RYqFjW:697s1_DTviZT29O1tOzEZYmVDP0=:eyJzY29wZSI6Imx5bG9uZyIsImRlYWRsaW5lIjoxNTQyOTAxMzE3fQ=='
-
-			let observable =  qiniu.upload(f, 'test/ok', token)
+			let token = that.props.token 
+			let name = that.props.name
+			// 七牛云上传
+			let observable =  qiniu.upload(f, name, token)
 
 			let observer = {
 				  next(res){
 				    console.log(res)
 				  },
 				  error(err){
-				    console.log(err)
+					console.log(err)
 				  }, 
 				  complete(res){
 				     console.log(res)
 				     // 用hash判断重复
-				     that.props.callback()
+				     that.props.callback(res)
 				  }
 				}
 
