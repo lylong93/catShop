@@ -25,7 +25,7 @@ class ChatList extends Component {
   select (item) {
     console.log( this.props)
     this.props.history.push({
-      pathname: `/cc/${item._id}`,
+      pathname: `/cc/${item.id}`,
       query:'ooo'
     })
   };

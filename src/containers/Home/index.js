@@ -31,7 +31,7 @@ class Home extends Component {
       return
     }
     const data = await apiUserRegister({
-      name,
+      shopname:'ooo',
       password
     })
     if (data.status === 200) {
