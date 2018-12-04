@@ -7,6 +7,7 @@ export const apiUserGetInfo = user.getInfo
 export const apiUserUpToken = user.upToken
 
 export const apiChatSend = chat.send
+export const apiGetFriend = chat.getFriend
 export const apiChatUserList = chat.userList
 export const apiGetMstList = chat.getMstList
 

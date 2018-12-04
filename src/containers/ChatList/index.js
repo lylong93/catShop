@@ -10,7 +10,7 @@ import Search from '@/components/Search';
 import Side from '@/containers/Side';
 
 import {
-  apiGetMstList
+  apiChatUserList
 } from '@/api'
 
 import style from './style.scss'
@@ -59,9 +59,7 @@ class ChatList extends Component {
     // })
   }
   componentWillMount = async () => {
-    const data = await apiGetMstList({
-      to:1
-    })
+    const data = await apiChatUserList()
 
     if(data.data.state=== 0) {
       console.log(data)

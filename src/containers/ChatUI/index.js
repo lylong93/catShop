@@ -4,7 +4,6 @@ import React, {
 
 import {connect} from 'react-redux'
 
-
 import Input from '@/components/Input';
 import Message from '@/components/Message';
 import Header from '@/components/Header';
@@ -70,10 +69,11 @@ class ChatUI extends Component {
     // console.log(this)
   }
   componentWillMount = async () =>{
-    // console.log(this.props.match.params.id)
+
     const id = this.props.match.params.id
-   
+  //  console.log('ok')
     const data = await apiGetMstList({id});
+
     if(data.data.state === 0) {
       console.log(data)
       const {username} = data.data.data.query
@@ -114,7 +114,6 @@ class ChatUI extends Component {
     );
   }
 }
-
 
 const mapStateToProps = (state, ownProps) => {
   const {user} = state
