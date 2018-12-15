@@ -55,14 +55,16 @@ class ChatUI extends Component {
     })
     let msg = {
       from:this.props.name,
-      to: this.state.chatName,
+      // to: this.state.chatName,
+      to:3,
       msg: this.state.value
     }
-    ioSendMsg(msg)
+    console.log(msg)
+    // ioSendMsg(msg)
 
     // 滑动
-    const list = this.refs.list
-    console.log(list)
+    // const list = this.refs.list
+    // console.log(list)
   };
 
   componentWillReceiveProps() {
@@ -76,12 +78,12 @@ class ChatUI extends Component {
 
     if(data.data.state === 0) {
       console.log(data)
-      const {username} = data.data.data.query
-      const list = data.data.data.list
-      this.setState({
-        chatName:username,
-        msglist:list
-      })
+      // const {username} = data.data.data.query
+      // const list = data.data.data.list
+      // this.setState({
+      //   chatName:username,
+      //   msglist:list
+      // })
     }
 
 
