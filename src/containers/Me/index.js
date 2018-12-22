@@ -5,7 +5,6 @@ import {
   logout
 } from '@/store/actions/user'
 
-import {apiUserRegister} from '@/api';
 
 import me from './me'
 // const test = () => {

@@ -7,7 +7,8 @@ const user = (state = {}, action) => {
 			return Object.assign({}, state, {
 				logined: true,
 				token:action.token,
-				name:action.shopname
+				name:action.shopname,
+				id:action.shopId
 			})
 		case LOGOUT:
 			return Object.assign({}, state, {

@@ -16,6 +16,8 @@ import {
 import {apiGetMstList} from '@/api'
 
 import style from './style.scss'
+import { ftruncate } from 'fs';
+import { func } from 'prop-types';
 
 class ChatUI extends Component {
   constructor(props) {
@@ -70,21 +72,29 @@ class ChatUI extends Component {
   componentWillReceiveProps() {
     // console.log(this)
   }
-  componentWillMount = async () =>{
+  componentWillMount = () =>{
 
-    const id = this.props.match.params.id
-  //  console.log('ok')
-    const data = await apiGetMstList({id});
-
-    if(data.data.state === 0) {
-      console.log(data)
-      // const {username} = data.data.data.query
-      // const list = data.data.data.list
-      // this.setState({
-      //   chatName:username,
-      //   msglist:list
-      // })
+    function ok() {
+      alert('ok')
     }
+    ioRecMsg(ok)
+    // ok()
+
+
+
+  //   const id = this.props.match.params.id
+  // //  console.log('ok')
+  //   const data = await apiGetMstList({id});
+
+  //   if(data.data.state === 0) {
+  //     console.log(data)
+  //     // const {username} = data.data.data.query
+  //     // const list = data.data.data.list
+  //     // this.setState({
+  //     //   chatName:username,
+  //     //   msglist:list
+  //     // })
+  //   }
 
 
    

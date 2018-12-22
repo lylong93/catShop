@@ -11,7 +11,10 @@ const user = {
 		return http.post('/api/shop/getinfo', params)
 	},
 	upToken:(params={})=> {
-		return http.post('/api/shop/updata', params)
+		return http.get('/api/shop/getUptoken', params)
+	},
+	upAvatar:(params={})=> {
+		return http.post('/api/shop/upavatar', params)
 	}
 }
 export default user

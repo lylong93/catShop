@@ -32,12 +32,13 @@ export const logout = () => {
 }
 
 export const changeLogin = info => {
-	const {token,shopname} = info
-	ioLogin(shopname)
+	const {token,shopname,shopId} = info
+	ioLogin(shopId)
 	return {
 		type: CHANGEUSER,
 		token,
-		shopname
+		shopname,
+		shopId
 	}
 }
 export const judeUser = name => {
@@ -47,6 +48,7 @@ export const judeUser = name => {
 			const data = await apiUserGetInfo({token})
 			if(data.data.state === 0) {
 				dispatch(changeLogin({...data.data,token}))
+				console.log(getState())
 			}
 		}
 	}
